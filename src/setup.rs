@@ -39,12 +39,12 @@ pub(crate) fn initial_state(
                     as Box<dyn FnMut() -> Box<dyn Mixer>>
             }
             _ => {
-                info!("Using alsa volume controller.");
-
+                info!("Using alsa volume controller."); 
                 let linear = match config.volume_controller {
-                    config::VolumeController::AlsaLinear => true,
+                    config::VolumeController::AlsaLinear => true, 
                     _ => false,
                 };
+                
                 Box::new(move || {
                     Box::new(alsa_mixer::AlsaMixer {
                         device: local_control_device
