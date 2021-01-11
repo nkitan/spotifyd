@@ -705,8 +705,8 @@ mod tests {
 
     #[test]
     fn test_section_merging() {
-        let mut spotifyd_section = config::SharedConfigValues {password : Some("123456".to_string()), Default: default() };
-        let mut global_section = config::SharedConfigValues{Some("testUserName".to_string()), Default: default() };
+        let mut spotifyd_section = config::SharedConfigValues {password : Some("123456".to_string()), ..Default::default() };
+        let mut global_section = config::SharedConfigValues{Some("testUserName".to_string()), ..Default::default() };
 
         // The test only makes sense if both sections differ.
         assert!(spotifyd_section != global_section, true);
